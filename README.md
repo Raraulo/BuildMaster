@@ -7,60 +7,278 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Project Management System
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplicación web desarrollada con **Laravel** para la gestión de proyectos, materiales y usuarios. El sistema permite administrar el ciclo de vida de los proyectos, controlar recursos y visualizar indicadores mediante un dashboard interactivo.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Table of Contents
 
-## Learning Laravel
+- Overview
+- Features
+- Technology Stack
+- System Architecture
+- Database
+- Installation
+- Development
+- Production Build
+- Deployment
+- Project Structure
+- Available Commands
+- Author
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+# Overview
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Project Management System es una aplicación web orientada a la administración de proyectos. Proporciona herramientas para gestionar proyectos, materiales, tareas y usuarios, complementadas con un dashboard que facilita el seguimiento del avance y los indicadores principales.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# Features
 
-### Premium Partners
+## Authentication
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- Secure user authentication
+- Protected routes
+- Session management
 
-## Contributing
+## Project Management
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Create, edit and delete projects
+- Budget management
+- Progress tracking
+- Project status management
+- Project scheduling
 
-## Code of Conduct
+## Material Management
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Material catalog
+- Stock management
+- Unit cost management
+- Material assignment to projects
 
-## Security Vulnerabilities
+## User Management
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- User administration
+- Access control
+- Role-based authorization
 
-## License
+## Dashboard
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Budget vs. actual cost
+- Project progress
+- Material cost distribution
+- Project statistics
+
+---
+
+# Technology Stack
+
+| Category | Technology |
+|-----------|------------|
+| Language | PHP 8.1+ |
+| Framework | Laravel 10 |
+| Authentication | Laravel Breeze |
+| API Authentication | Laravel Sanctum |
+| Database | MySQL |
+| Frontend | Blade |
+| CSS Framework | Tailwind CSS |
+| JavaScript | Alpine.js |
+| Build Tool | Vite |
+| Charts | Chart.js |
+| Dependency Manager | Composer |
+| Package Manager | npm |
+
+---
+
+# System Architecture
+
+The application is organized into the following modules:
+
+- Authentication
+- Project Management
+- Material Management
+- User Management
+- Dashboard and Reporting
+
+---
+
+# Database
+
+The application uses **MySQL** as its database engine.
+
+### Main Tables
+
+- users
+- projects
+- tasks
+- materials
+- password_reset_tokens
+- personal_access_tokens
+- failed_jobs
+
+### Relationships
+
+- A user can manage multiple projects.
+- A user can manage multiple tasks.
+- A project can contain multiple tasks.
+- A project can contain multiple materials.
+- Materials are associated with individual projects.
+
+---
+
+# Installation
+
+Clone the repository.
+
+```bash
+git clone <repository-url>
+cd laravel1
+```
+
+Install PHP dependencies.
+
+```bash
+composer install
+```
+
+Install frontend dependencies.
+
+```bash
+npm install
+```
+
+Create the environment file.
+
+```bash
+cp .env.example .env
+```
+
+Generate the application key.
+
+```bash
+php artisan key:generate
+```
+
+Configure the database credentials in the `.env` file.
+
+Run the migrations.
+
+```bash
+php artisan migrate
+```
+
+Optionally, load sample data.
+
+```bash
+php artisan db:seed
+```
+
+Start the development server.
+
+```bash
+php artisan serve
+```
+
+Run the asset compiler.
+
+```bash
+npm run dev
+```
+
+---
+
+# Development
+
+The application runs locally at:
+
+```text
+http://localhost:8000
+```
+
+---
+
+# Production Build
+
+Compile frontend assets.
+
+```bash
+npm run build
+```
+
+---
+
+# Deployment
+
+The project is compatible with PHP hosting providers such as:
+
+- InfinityFree
+- Hostinger
+- cPanel Hosting
+- VPS Servers
+
+Deployment requirements include:
+
+- PHP 8.1 or later
+- MySQL
+- Composer
+- Node.js (during build process)
+
+Before deployment, configure the production environment variables in the `.env` file and execute the required database migrations.
+
+---
+
+# Project Structure
+
+```text
+app/
+├── Http/
+│   └── Controllers/
+├── Models/
+└── Policies/
+
+database/
+├── migrations/
+└── seeders/
+
+resources/
+├── css/
+├── js/
+└── views/
+
+routes/
+├── web.php
+└── auth.php
+
+public/
+└── index.php
+```
+
+---
+
+# Available Commands
+
+| Command | Description |
+|----------|-------------|
+| composer install | Install PHP dependencies |
+| npm install | Install frontend dependencies |
+| php artisan key:generate | Generate application key |
+| php artisan migrate | Execute database migrations |
+| php artisan db:seed | Load sample data |
+| php artisan serve | Start development server |
+| npm run dev | Start Vite development server |
+| npm run build | Generate production assets |
+
+---
+
+# Project Status
+
+The application is fully functional and provides a complete solution for project, material and user management, including authentication, reporting and dashboard visualization.
+
+---
+
+# Author
+
+Laravel-based web application developed for project management, resource administration and progress monitoring.
